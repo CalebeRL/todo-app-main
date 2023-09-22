@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './components/Header/Header';
-import Provider from './context/Provider';
-import './index.css';
 import BodyList from './components/BodyList/BodyList';
+import AppContext from './context/AppContext';
+import './index.css';
 
 function App() {
+
+  const { theme } = useContext(AppContext);
+  
   return (
-    
-    <Provider>
+    <div className="App" id={theme}>
       <Header/>
       <BodyList/>
-    </Provider>
-
+      <p>Drag and drop to reorder list</p>
+    </div>
   );
 }
 
