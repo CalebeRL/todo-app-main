@@ -13,8 +13,6 @@ function BodyList () {
     setList(JSON.parse(localStorage.getItem('listData')));
     setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
 
-    if (list.length === 0)  list.push('Start your todo list!');
-
   }, []);
 
   useEffect(() => {
@@ -40,34 +38,41 @@ function BodyList () {
     setList(itemsList);
   }
 
+  if (list.length === 0) {
+    return (
+      <h1>Alfacom</h1>
+    );
+  } else {
+    return (
 
-  return (
-    <div className="body-list">
+      <div className="body-list">
 
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="list">
-          {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {list.map((item, index) => {
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="list">
+            {(provided) => (
+              <ul {...provided.droppableProps} ref={provided.innerRef}>
+                {list.map((item, index) => {
 
-                return (
-                  <Draggable key={item} draggableId={item} index={index}>
-                    {(provided) => (
-                      <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                        <ListItem data={item} key={index} id={index}></ListItem>
-                      </li>
-                    )}
-                  </Draggable>
-                );
-              })}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
+                  return (
+                    <Draggable key={item} draggableId={item} index={index}>
+                      {(provided) => (
+                        <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                          <ListItem data={item} key={index} id={index}></ListItem>
+                        </li>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
 
-    </div>
-  );
+      </div> 
+
+    );
+  }
 }
 
 export default BodyList;
