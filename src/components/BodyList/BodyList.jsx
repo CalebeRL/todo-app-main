@@ -43,7 +43,9 @@ function BodyList () {
     setList(itemsList);
   }
   if (!list) {
-    <h1>Alfacom</h1>;
+    return (
+      <h1>Alfacom</h1>
+    );
   } else {
     return (
     
