@@ -1,5 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+:root {
+  --bright-blue: hsl(220, 98%, 61%);
+  --gradient-checked: linear-gradient(120deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%)); 
+
+  
+  --very-light-gray-lt: hsl(0, 0%, 98%);
+  --very-light-grayish-blue-lt: hsl(236, 33%, 92%);
+  --light-grayish-blue-lt: hsl(233, 11%, 84%);
+  --dark-grayish-blue-lt: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue-lt: hsl(235, 19%, 35%);
+
+
+  --very-dark-blue-dt: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue-dt: hsl(235, 24%, 19%);
+  --light-grayish-blue-dt: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover-dt: hsl(236, 33%, 92%);
+  --dark-grayish-blue-dt: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue-dt1: hsl(233, 14%, 35%);
+  --very-dark-grayish-blue-dt2: hsl(237, 14%, 26%);
+
+  --bg-color-active: var(--very-light-gray-lt);
+  --bg-color-lt: var(--very-light-gray-lt);
+  --bg-color-dt: var(--very-dark-blue-dt);
+
+  --list-bg-color-lt: white;
+  --list-bg-color-dt:  var(--very-dark-desaturated-blue-dt);
+
+  --list-text-color1-lt: var(--very-dark-grayish-blue-lt);
+  --list-text-color1-dt: var(--light-grayish-blue-dt);
+
+  --list-text-color2-lt: var(--dark-grayish-blue-lt);
+  --list-text-color2-dt: var(--dark-grayish-blue-dt);
+
+  --list-checked-text-color-lt: var(--light-grayish-blue-lt);
+  --list-checked-text-color-dt: var(--very-dark-grayish-blue-dt1);
+
+  --list-item-border-color-lt: var(--very-light-grayish-blue-lt);
+  --list-item-border-color-dt: var(--very-dark-grayish-blue-dt2);
+
+  --checkbox-border-color: var(--very-light-grayish-blue-lt);
+  
+  --list-text-hover-lt: var(--very-dark-grayish-blue-lt);
+  --list-text-hover-dt: var(--light-grayish-blue-hover-dt);
+
+
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+  background-repeat: no-repeat;
+}
+
+body {
+  background-color: var(--bg-color-active);
+
+}
+
+.App > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  margin-top: 2.5rem;
+  user-select: none;
+
+}
+
+#light > p {
+  color: var(--list-text-color2-lt);
+}
+
+#dark > p {
+  color: var(--list-text-color2-dt);
 }

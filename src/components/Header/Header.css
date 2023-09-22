@@ -1,0 +1,68 @@
+.header_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-image {
+  position: absolute;
+  background-position: center;
+  margin: auto;
+  width: 100vw;
+  height: 20rem;
+  z-index: -1;
+  margin-top: 18rem; 
+}
+
+.header-image {
+  background-image: url(../../images/bg-desktop-light.jpg);
+}
+
+#dark .header-image {
+  background-image: url(../../images/bg-desktop-dark.jpg);
+}
+
+.header-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(90vw, 34.2rem);
+  margin: 0 auto;
+  margin-top: 4.2rem;
+}
+
+h1 {
+  font-size: min(7vw, 2.6rem);
+  letter-spacing: min(2.8vw, 1rem);
+  color: white;
+}
+
+.button-theme {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url("../../images/icon-moon.svg");
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+}
+
+@media (max-width: 375px) {
+  .header-image {
+      margin-top: 12.5rem;
+  }
+
+  #light .header-image {
+      background-image: url(../../images/bg-mobile-light.jpg);
+  }
+
+  #dark .header-image {
+      background-image: url(../../images/bg-mobile-dark.jpg);
+  }
+
+  .header-menu {
+      margin-top: 3rem;
+  }
+  
+}
