@@ -12,7 +12,6 @@ function BodyList () {
   useEffect(() => {
 
     if (list) {
-
       setList(JSON.parse(localStorage.getItem('listData')));
       setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
     }
@@ -23,7 +22,9 @@ function BodyList () {
 
     if (list && list.length > 0) { 
       localStorage.setItem('listData', JSON.stringify(list));
-    } 
+    } else {
+      list.push('Start you todo list!');
+    }
 
   }, [list]); 
 
