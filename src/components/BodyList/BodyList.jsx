@@ -11,20 +11,21 @@ function BodyList () {
 
   useEffect(() => {
 
-    if (!list) {
+    if (list) {
 
       setList(JSON.parse(localStorage.getItem('listData')));
       setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
-
     }
+
   }, []);
 
-  /*   useEffect(() => {
-    if (list.length !==0) { 
+  useEffect(() => {
+    
+    if (list && list.length > 0) { 
       localStorage.setItem('listData', JSON.stringify(list));
     } 
 
-  }, [list]);  */
+  }, [list]); 
 
   function handleOnDragEnd(result) {
 
