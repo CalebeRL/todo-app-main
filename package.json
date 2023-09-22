@@ -1,4 +1,5 @@
 {
+  "homepage": ".",
   "name": "todo-app-main-alternative",
   "version": "0.1.0",
   "private": true,
