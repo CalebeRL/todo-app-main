@@ -20,7 +20,7 @@ function BodyList () {
   }, []);
 
   useEffect(() => {
-    
+
     if (list && list.length > 0) { 
       localStorage.setItem('listData', JSON.stringify(list));
     } 
@@ -42,36 +42,40 @@ function BodyList () {
     setCheckedList(checkedItems);
     setList(itemsList);
   }
+  if (!list) {
+    <h1>Alfacom</h1>;
+  } else {
+    return (
+    
+      <div className="body-list">
 
-  return (
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="list">
+            {(provided) => (
+              <ul {...provided.droppableProps} ref={provided.innerRef}>
+                {list.map((item, index) => {
 
-    <div className="body-list">
+                  return (
+                    <Draggable key={item} draggableId={item} index={index}>
+                      {(provided) => (
+                        <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                          <ListItem data={item} key={index} id={index}></ListItem>
+                        </li>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
 
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="list">
-          {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {list.map((item, index) => {
+      </div> 
 
-                return (
-                  <Draggable key={item} draggableId={item} index={index}>
-                    {(provided) => (
-                      <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                        <ListItem data={item} key={index} id={index}></ListItem>
-                      </li>
-                    )}
-                  </Draggable>
-                );
-              })}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
+    );
 
-    </div> 
-
-  );
+  }
   
 }
 
