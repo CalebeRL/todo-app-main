@@ -4,7 +4,7 @@ import AppContext from './AppContext';
 
 function Provider({ children }) {
 
-  const [ list, setList ] = useState(null);
+  const [ list, setList ] = useState([]);
   const [ checkedList, setCheckedList ] = useState([]);
   const [ filter, setFilter ] = useState('all');
   const [ clearCompleted, setClearCompleted ] = useState(false);
