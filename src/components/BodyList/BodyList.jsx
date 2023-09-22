@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import ListItem from '../ListItem/ListItem';
 import AppContext from '../../context/AppContext';
 import {DragDropContext, Droppable, Draggable} from '@hello-pangea/dnd';
@@ -9,10 +9,9 @@ function BodyList () {
   const { list, setList } = useContext(AppContext);
   const { checkedList, setCheckedList } = useContext(AppContext);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     setList(JSON.parse(localStorage.getItem('listData')));
     setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
-
   }, []);
 
   useEffect(() => {
@@ -20,7 +19,7 @@ function BodyList () {
       localStorage.setItem('listData', JSON.stringify(list));
     } 
 
-  }, [list]);
+  }, [list]); */
 
   function handleOnDragEnd(result) {
 
@@ -38,7 +37,7 @@ function BodyList () {
     setList(itemsList);
   }
 
-  if (list.length === 0) {
+  if (!list) {
     return (
       <h1>Alfacom</h1>
     );
