@@ -75,7 +75,7 @@
 .input-list {
   width: 30.5rem;
   height: 3.75rem;
-  font-size: clamp(12px, 1.2vw, 18px);
+  font-size: min(3.2vw, 1.15rem);;
   border-radius: 0 .4rem .4rem 0;
   border: none;
   outline: none;

@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: space-between;
   width: 30rem;
-  font-size:  min(3.2vw, 1.15rem);
+  font-size: min(3.2vw, 1.15rem);
   border: none;
   outline: none;
 }

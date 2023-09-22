@@ -13,10 +13,14 @@ function BodyList () {
     setList(JSON.parse(localStorage.getItem('listData')));
     setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
 
+    if (list.length === 0)  list.push('Start your todo list!');
+
   }, []);
 
   useEffect(() => {
-    if (list.length !==0) localStorage.setItem('listData', JSON.stringify(list));
+    if (list.length !==0) { 
+      localStorage.setItem('listData', JSON.stringify(list));
+    } 
 
   }, [list]);
 
