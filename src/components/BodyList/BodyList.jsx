@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ListItem from '../ListItem/ListItem';
 import AppContext from '../../context/AppContext';
 import {DragDropContext, Droppable, Draggable} from '@hello-pangea/dnd';
@@ -9,17 +9,22 @@ function BodyList () {
   const { list, setList } = useContext(AppContext);
   const { checkedList, setCheckedList } = useContext(AppContext);
 
-  /*   useEffect(() => {
-    setList(JSON.parse(localStorage.getItem('listData')));
-    setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
+  useEffect(() => {
+
+    if (!list) {
+
+      setList(JSON.parse(localStorage.getItem('listData')));
+      setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
+
+    }
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (list.length !==0) { 
       localStorage.setItem('listData', JSON.stringify(list));
     } 
 
-  }, [list]); */
+  }, [list]);  */
 
   function handleOnDragEnd(result) {
 
@@ -37,41 +42,36 @@ function BodyList () {
     setList(itemsList);
   }
 
-  if (!list) {
-    return (
-      <h1>Alfacom</h1>
-    );
-  } else {
-    return (
+  return (
 
-      <div className="body-list">
+    <div className="body-list">
 
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-          <Droppable droppableId="list">
-            {(provided) => (
-              <ul {...provided.droppableProps} ref={provided.innerRef}>
-                {list.map((item, index) => {
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="list">
+          {(provided) => (
+            <ul {...provided.droppableProps} ref={provided.innerRef}>
+              {list.map((item, index) => {
 
-                  return (
-                    <Draggable key={item} draggableId={item} index={index}>
-                      {(provided) => (
-                        <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                          <ListItem data={item} key={index} id={index}></ListItem>
-                        </li>
-                      )}
-                    </Draggable>
-                  );
-                })}
-                {provided.placeholder}
-              </ul>
-            )}
-          </Droppable>
-        </DragDropContext>
+                return (
+                  <Draggable key={item} draggableId={item} index={index}>
+                    {(provided) => (
+                      <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                        <ListItem data={item} key={index} id={index}></ListItem>
+                      </li>
+                    )}
+                  </Draggable>
+                );
+              })}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
 
-      </div> 
+    </div> 
 
-    );
-  }
+  );
+  
 }
 
 export default BodyList;
