@@ -1,0 +1,116 @@
+.form-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+
+.input-checkbox__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+#light .input-checkbox__wrapper {
+  background-color: var(--list-bg-color-lt);
+}
+
+#dark .input-checkbox__wrapper {
+  background-color: var(--list-bg-color-dt);
+}
+
+.form-list > .input-checkbox__wrapper:first-child {
+  border-radius: .4rem 0 0 .4rem;
+}
+
+.input-checkbox {
+  position: relative;
+  appearance: none;
+  height: 1.35rem;
+  width:  1.35rem;
+  border: 1px solid transparent;
+  border-radius: 100%;
+}
+
+.input-checkbox:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 100%;
+  border: 1px solid transparent;
+  background: var(--gradient-checked) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: destination-out;
+  mask-composite: exclude;
+  cursor: pointer;
+}
+
+#light .input-checkbox {
+  border-color: var(--list-item-border-color-lt);
+}
+
+#dark .input-checkbox {
+  border-color: var(--list-item-border-color-dt);
+}
+
+.input-checkbox:checked {
+  background-image: url(../../images/icon-check.svg), var(--gradient-checked);
+  background-position: center; 
+  background-size: 0.6rem, cover;
+  border: none;
+
+}
+
+.input-list {
+  width: 30.5rem;
+  height: 3.75rem;
+  font-size: clamp(12px, 1.2vw, 18px);
+  border-radius: 0 .4rem .4rem 0;
+  border: none;
+  outline: none;
+ 
+}
+
+#light .input-list {
+  background-color: var(--list-bg-color-lt);
+  color: var(--list-text-color1-lt);
+}
+
+#dark .input-list {
+  background-color: var(--list-bg-color-dt);
+  color: var(--list-text-color1-dt);
+}
+
+@media (max-width: 600px) {
+
+  .input-list {
+      width: min(77vw, 30rem);
+      height: 3.3rem;
+  }
+
+  .input-checkbox__wrapper {
+      padding-right: 0.8rem;
+      height: 3.3rem;
+  }  
+  
+} 
+
+@media (max-width: 375px) {
+
+  .input-list {
+      width: 75.5vw;
+  }
+  
+}
+

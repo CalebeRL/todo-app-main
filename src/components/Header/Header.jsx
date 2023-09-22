@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import AppContext from '../../context/AppContext';
+import InputList from '../InputList/InputList';
 import iconSun from '../../images/icon-sun.svg';
 import iconMoon from '../../images/icon-moon.svg';
 import './Header.css';
@@ -32,6 +33,7 @@ function Header() {
         <h1 className="title">TODO</h1>
         <button onClick={handleToggleTheme} className="button-theme"></button>
       </div>
+      <InputList/>
     </header>
   );
 }
