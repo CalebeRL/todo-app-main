@@ -36,34 +36,39 @@ function BodyList () {
     setList(itemsList);
   }
 
+  if (list.length > 0) {
+    return (
+      <div className="body-list">
 
-  return (
-    <div className="body-list">
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="list">
+            {(provided) => (
+              <ul {...provided.droppableProps} ref={provided.innerRef}>
+                {list.map((item, index) => {
 
-      <DragDropContext onDragEnd={handleOnDragEnd}>
-        <Droppable droppableId="list">
-          {(provided) => (
-            <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {list.map((item, index) => {
+                  return (
+                    <Draggable key={item} draggableId={item} index={index}>
+                      {(provided) => (
+                        <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                          <ListItem data={item} key={index} id={index}></ListItem>
+                        </li>
+                      )}
+                    </Draggable>
+                  );
+                })}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
 
-                return (
-                  <Draggable key={item} draggableId={item} index={index}>
-                    {(provided) => (
-                      <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                        <ListItem data={item} key={index} id={index}></ListItem>
-                      </li>
-                    )}
-                  </Draggable>
-                );
-              })}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
-
-    </div>
-  );
+      </div>
+    );
+  } else {
+    return (
+      <h1>Teste</h1>
+    );
+  }
 }
 
 export default BodyList;
