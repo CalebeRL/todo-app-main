@@ -18,15 +18,15 @@ function BodyList () {
 
   }, []);
 
-  useEffect(() => {
+  /*   useEffect(() => {
 
-/*     if (list && list.length > 0) { 
+    if (list && list.length > 0) { 
       localStorage.setItem('listData', JSON.stringify(list));
     } else {
       list.push('Start you todo list!');
     }
 
-  }, [list]);  */
+  }, [list]);   */
 
   function handleOnDragEnd(result) {
 
