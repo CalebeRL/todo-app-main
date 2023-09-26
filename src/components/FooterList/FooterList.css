@@ -1,0 +1,124 @@
+.list-options-desktop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0 0 .4rem .4rem;
+}
+
+.list-options-desktop > p:first-child {
+  padding-right: 2rem;
+}
+
+.list-options-desktop > p:last-child {
+  padding-left: 2rem;
+}
+
+#light .footer {
+  background-color: var(--list-bg-color-lt);
+  color: var(--dark-grayish-blue-lt);
+}
+
+#dark .footer {
+  background-color: var(--list-bg-color-dt);
+  color: var(--list-text-color2-dt);
+}
+
+.list-option {
+  cursor: pointer;
+}
+
+#light .list-option:hover {
+  color: var(--list-text-hover-lt);
+}
+
+#dark .list-option:hover {
+  color: var(--list-text-hover-dt);
+}
+
+.list-options-desktop > .list-option {
+  font-weight: 700;
+}
+
+.list-option__clicked {
+  color: var(--bright-blue);
+}
+
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  width: 100vw;
+}
+
+.footer {
+  position: relative;
+  height: 3rem;
+  font-size: 0.85rem;
+  border-radius: 0 0 .4rem .4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  width: min(90vw, 34.3rem);
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.1);
+  clip-path: inset(0px -20px -20px -20px);
+}
+
+.footer > p:first-child {
+  position: absolute;
+  left: 1.4rem;
+  top: 1rem;
+}
+
+.footer > p:last-child {
+  position: absolute;
+  right: 1.4rem;
+  top: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .list-options-mobile {
+      display: none;
+  }
+  
+}
+
+@media (max-width: 600px) {
+  .list-options-desktop {
+      display: none;
+  }
+
+  .footer__mobile {
+      width: 90vw;
+  }
+
+  .list-options-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: .4rem;
+      font-weight: 700;
+      font-size: .85rem;
+      box-shadow: 1px -5px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  #light .list-options-mobile {
+      background-color: var(--list-bg-color-lt);
+      color: var(--list-text-color2-lt);
+  }
+
+  #dark .list-options-mobile {
+      background-color: var(--list-bg-color-dt);
+      color: var(--list-text-color2-dt);
+  }
+  
+}

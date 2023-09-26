@@ -6,19 +6,13 @@ import './BodyList.css';
 
 function BodyList () {
 
-  const { list, setList } = useContext(AppContext);
-  const { checkedList, setCheckedList } = useContext(AppContext);
+  const { list, setList, checkedList, setCheckedList } = useContext(AppContext);
 
   useEffect(() => {
     
     if (list && checkedList) {
       setList(JSON.parse(localStorage.getItem('listData')));
       setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
-      console.log('recuperado');
-
-      setTimeout(() => {
-        console.log(list.length);
-      }, 5000);
     }
 
   }, []);
@@ -27,11 +21,9 @@ function BodyList () {
 
     if (list && list.length > 0) { 
       localStorage.setItem('listData', JSON.stringify(list));
-      console.log('salvo');
     } 
 
     if (!list) {
-      console.log('teste null');
       setList(['Start you todo list!']);
       setCheckedList(['o']);
     }

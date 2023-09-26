@@ -5,16 +5,11 @@ import './ListItem.css';
 
 function ListItem (props) {
 
-  const { list, setList } = useContext(AppContext);
-  const { checkedList, setCheckedList } = useContext(AppContext);
-  const { filter } = useContext(AppContext);
-  const { clearCompleted, setClearCompleted } = useContext(AppContext);
-  const { theme } = useContext(AppContext);
+  const { list, setList, checkedList, setCheckedList, filter, clearCompleted, setClearCompleted, theme } = useContext(AppContext);
 
   const checkboxRef = useRef(null);
   const contentRef = useRef(null);
   const listItemRef = useRef(null);
-
   
   useEffect(() => {
     const checkedId = checkboxRef.current.id;

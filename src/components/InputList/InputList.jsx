@@ -4,8 +4,7 @@ import './InputList.css';
 
 function InputList () { 
 
-  const { list, setList } = useContext(AppContext);
-  const { checkedList, setCheckedList} = useContext(AppContext);
+  const { list, setList, checkedList, setCheckedList } = useContext(AppContext);
 
   const inputListRef = useRef(null);
   const checkboxInputRef = useRef(null);

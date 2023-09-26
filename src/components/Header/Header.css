@@ -38,8 +38,8 @@ h1 {
 }
 
 .button-theme {
-  width: 1.6rem;
-  height: 1.6rem;
+  width: min(5.5vw, 1.6rem);
+    height: min(5.5vw, 1.6rem);
   background-image: url("../../images/icon-moon.svg");
   background-size: contain;
   border: none;
