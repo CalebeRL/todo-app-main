@@ -19,16 +19,18 @@ function ListItem (props) {
   useEffect(() => {
     const checkedId = checkboxRef.current.id;
 
-    if (checkedList[checkedId] === 'x') {
-      checkboxRef.current.checked = true;
-      contentRef.current.classList.add('list-item-checked');
-    } else if (checkedList[checkedId] === 'o') {
-      checkboxRef.current.checked = false;
-      contentRef.current.classList.remove('list-item-checked');
+    if (checkedList) {
+      if (checkedList[checkedId] === 'x') {
+        checkboxRef.current.checked = true;
+        contentRef.current.classList.add('list-item-checked');
+      } else if (checkedList[checkedId] === 'o') {
+        checkboxRef.current.checked = false;
+        contentRef.current.classList.remove('list-item-checked');
+      }
+
+      localStorage.setItem('checkedListData', JSON.stringify(checkedList));
     }
-
-    localStorage.setItem('checkedListData', JSON.stringify(checkedList));
-
+    
   }, [checkedList]);
 
   useEffect(() => {

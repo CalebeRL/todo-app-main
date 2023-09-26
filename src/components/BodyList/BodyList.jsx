@@ -10,23 +10,33 @@ function BodyList () {
   const { checkedList, setCheckedList } = useContext(AppContext);
 
   useEffect(() => {
-
-    if (list) {
+    
+    if (list && checkedList) {
       setList(JSON.parse(localStorage.getItem('listData')));
       setCheckedList(JSON.parse(localStorage.getItem('checkedListData')));
+      console.log('recuperado');
+
+      setTimeout(() => {
+        console.log(list.length);
+      }, 5000);
     }
 
   }, []);
 
-  /*   useEffect(() => {
+  useEffect(() => {
 
     if (list && list.length > 0) { 
       localStorage.setItem('listData', JSON.stringify(list));
-    } else {
-      list.push('Start you todo list!');
+      console.log('salvo');
+    } 
+
+    if (!list) {
+      console.log('teste null');
+      setList(['Start you todo list!']);
+      setCheckedList(['o']);
     }
 
-  }, [list]);   */
+  }, [list]); 
 
   function handleOnDragEnd(result) {
 
@@ -59,7 +69,7 @@ function BodyList () {
                 {list.map((item, index) => {
 
                   return (
-                    <Draggable key={item} draggableId={item} index={index}>
+                    <Draggable key={item + index.toString()} draggableId={item + index.toString()} index={index}>
                       {(provided) => (
                         <li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                           <ListItem data={item} key={index} id={index}></ListItem>
