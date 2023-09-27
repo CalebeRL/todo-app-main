@@ -24,7 +24,7 @@ function BodyList () {
     } 
 
     if (!list) {
-      setList(['Start you todo list!']);
+      setList(['Start your todo list!']);
       setCheckedList(['o']);
     }
 
