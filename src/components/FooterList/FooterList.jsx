@@ -17,7 +17,7 @@ function FooterList () {
   }  
 
   return (
-    <div className="footer__wrapper">
+    <footer className="footer__wrapper">
       <div className="footer">
         <p className="list-info">{checkedList.filter((a) => a === 'o' ? a : null).length} items left</p>
 
@@ -41,7 +41,7 @@ function FooterList () {
 
         </div>
       </div>
-    </div>
+    </footer>
         
   );
 }

@@ -31,7 +31,7 @@ function Header() {
       </div>
       <div className="header-menu">
         <h1 className="title">TODO</h1>
-        <button onClick={handleToggleTheme} className="button-theme"></button>
+        <button onClick={handleToggleTheme} aria-label="Button-Theme" className="button-theme"></button>
       </div>
       <InputList/>
     </header>

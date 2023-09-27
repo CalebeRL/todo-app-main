@@ -31,8 +31,9 @@ function InputList () {
       <div className="input-checkbox__wrapper">
         <input 
           className="input-checkbox" 
-          ref={checkboxInputRef}  
           type="checkbox"
+          aria-label="Checkbox"
+          ref={checkboxInputRef}  
         />
       </div>
       <form onSubmit={handleSubmit}>
@@ -40,6 +41,7 @@ function InputList () {
           className="input-list" 
           type="text" 
           placeholder="Create a new Todo..."
+          aria-label="List-Item-Submit"
           ref={inputListRef}
         />
       </form>
