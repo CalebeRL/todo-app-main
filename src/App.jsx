@@ -14,7 +14,8 @@ function App() {
       <Header/>
       <BodyList/>
       {checkedList && list.length > 0 ? <FooterList/> : null}
-      <p>Drag and drop to reorder list</p>
+      {checkedList && list.length > 0 ? <p>Drag and drop to reorder list</p> : null}
+    
     </div>
   );
 }
